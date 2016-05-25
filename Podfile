@@ -1,12 +1,7 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+use_frameworks!
 
 target 'echotags-db-importer' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for echotags-db-importer
-  pod 'RealmSwift', '0.103.1'
+  pod 'RealmSwift', '1.0.0'
   pod 'Alamofire'
   pod 'SwiftyJSON'
 end
