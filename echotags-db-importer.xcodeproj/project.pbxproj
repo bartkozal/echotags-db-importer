@@ -13,6 +13,8 @@
 		A167A4501CF5C60400ECCED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A167A44F1CF5C60400ECCED7 /* Assets.xcassets */; };
 		A167A4531CF5C60400ECCED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A167A4511CF5C60400ECCED7 /* LaunchScreen.storyboard */; };
 		A167A45B1CF5CC5E00ECCED7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167A45A1CF5CC5E00ECCED7 /* HomeViewController.swift */; };
+		A167A45F1CF5D2B200ECCED7 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167A45E1CF5D2B200ECCED7 /* Schema.swift */; };
+		A167A4611CF5D2D200ECCED7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167A4601CF5D2D200ECCED7 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		A167A4521CF5C60400ECCED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A167A4541CF5C60400ECCED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A167A45A1CF5CC5E00ECCED7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A167A45E1CF5D2B200ECCED7 /* Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		A167A4601CF5D2D200ECCED7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C0CAB0355BACA5CDCC4B1E8D /* Pods-echotags-db-importer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-echotags-db-importer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-echotags-db-importer/Pods-echotags-db-importer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +73,7 @@
 		A167A4471CF5C60400ECCED7 /* echotags-db-importer */ = {
 			isa = PBXGroup;
 			children = (
+				A167A45D1CF5D2A500ECCED7 /* Database */,
 				A167A45A1CF5CC5E00ECCED7 /* HomeViewController.swift */,
 				A167A44C1CF5C60400ECCED7 /* Main.storyboard */,
 				A167A45C1CF5CC6E00ECCED7 /* Support Files */,
@@ -85,6 +90,15 @@
 				A167A4541CF5C60400ECCED7 /* Info.plist */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		A167A45D1CF5D2A500ECCED7 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A167A45E1CF5D2B200ECCED7 /* Schema.swift */,
+				A167A4601CF5D2D200ECCED7 /* Data.swift */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		D522D7D2C594DF757708C98F /* Pods */ = {
@@ -218,8 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A167A45F1CF5D2B200ECCED7 /* Schema.swift in Sources */,
 				A167A4491CF5C60400ECCED7 /* AppDelegate.swift in Sources */,
 				A167A45B1CF5CC5E00ECCED7 /* HomeViewController.swift in Sources */,
+				A167A4611CF5D2D200ECCED7 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
