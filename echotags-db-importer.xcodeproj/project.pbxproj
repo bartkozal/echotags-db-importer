@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21DE9D5A030F515EC207D2EF /* Pods_echotags_db_importer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BC0868714460DA5B4B6B0A /* Pods_echotags_db_importer.framework */; };
 		A167A4491CF5C60400ECCED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167A4481CF5C60400ECCED7 /* AppDelegate.swift */; };
 		A167A44E1CF5C60400ECCED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A167A44C1CF5C60400ECCED7 /* Main.storyboard */; };
 		A167A4501CF5C60400ECCED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A167A44F1CF5C60400ECCED7 /* Assets.xcassets */; };
@@ -14,12 +15,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10A63ADADE697EA9326AEE4D /* Pods-echotags-db-importer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-echotags-db-importer.release.xcconfig"; path = "Pods/Target Support Files/Pods-echotags-db-importer/Pods-echotags-db-importer.release.xcconfig"; sourceTree = "<group>"; };
+		92BC0868714460DA5B4B6B0A /* Pods_echotags_db_importer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_echotags_db_importer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A167A4451CF5C60400ECCED7 /* echotags-db-importer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "echotags-db-importer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A167A4481CF5C60400ECCED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A167A44D1CF5C60400ECCED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A167A44F1CF5C60400ECCED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A167A4521CF5C60400ECCED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A167A4541CF5C60400ECCED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0CAB0355BACA5CDCC4B1E8D /* Pods-echotags-db-importer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-echotags-db-importer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-echotags-db-importer/Pods-echotags-db-importer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +31,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21DE9D5A030F515EC207D2EF /* Pods_echotags_db_importer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E71B0F5E24F2563341D1C66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92BC0868714460DA5B4B6B0A /* Pods_echotags_db_importer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A167A43C1CF5C60400ECCED7 = {
 			isa = PBXGroup;
 			children = (
 				A167A4471CF5C60400ECCED7 /* echotags-db-importer */,
 				A167A4461CF5C60400ECCED7 /* Products */,
+				D522D7D2C594DF757708C98F /* Pods */,
+				4E71B0F5E24F2563341D1C66 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +76,15 @@
 			path = "echotags-db-importer";
 			sourceTree = "<group>";
 		};
+		D522D7D2C594DF757708C98F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0CAB0355BACA5CDCC4B1E8D /* Pods-echotags-db-importer.debug.xcconfig */,
+				10A63ADADE697EA9326AEE4D /* Pods-echotags-db-importer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,9 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A167A4571CF5C60400ECCED7 /* Build configuration list for PBXNativeTarget "echotags-db-importer" */;
 			buildPhases = (
+				E361E1D1B139754D62801984 /* 📦 Check Pods Manifest.lock */,
 				A167A4411CF5C60400ECCED7 /* Sources */,
 				A167A4421CF5C60400ECCED7 /* Frameworks */,
 				A167A4431CF5C60400ECCED7 /* Resources */,
+				450603389B61A0947DB32403 /* 📦 Embed Pods Frameworks */,
+				EC31322EF600DA8FA496D9D1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +153,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		450603389B61A0947DB32403 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-echotags-db-importer/Pods-echotags-db-importer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E361E1D1B139754D62801984 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EC31322EF600DA8FA496D9D1 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-echotags-db-importer/Pods-echotags-db-importer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A167A4411CF5C60400ECCED7 /* Sources */ = {
@@ -243,6 +318,7 @@
 		};
 		A167A4581CF5C60400ECCED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0CAB0355BACA5CDCC4B1E8D /* Pods-echotags-db-importer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "echotags-db-importer/Info.plist";
@@ -254,6 +330,7 @@
 		};
 		A167A4591CF5C60400ECCED7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10A63ADADE697EA9326AEE4D /* Pods-echotags-db-importer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "echotags-db-importer/Info.plist";
@@ -282,6 +359,7 @@
 				A167A4591CF5C60400ECCED7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
