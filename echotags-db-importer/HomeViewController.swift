@@ -39,4 +39,10 @@ class HomeViewController: UIViewController {
             markersCountLabel.text = String(Data.db.objects(Marker).count)
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        Data.populate()
+    }
 }
