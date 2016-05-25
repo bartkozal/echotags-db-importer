@@ -6,36 +6,72 @@
 //  Copyright © 2016 bkzl. All rights reserved.
 //
 
+import Foundation
 import RealmSwift
+import Alamofire
+import SwiftyJSON
+
+struct API {
+    static let baseURL = "http://marker.echotags.io"
+    private static let user = "echotags"
+    private static let password = "iwantabanana"
+    
+    static var credentials: NSURLCredential {
+        return NSURLCredential(user: user, password: password, persistence: .ForSession)
+    }
+    
+    static func get(resource: String, completion: (JSON) -> ()) {
+        Alamofire.request(.GET, "\(baseURL)/\(resource).json").authenticate(usingCredential: credentials).responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let data = response.data {
+                    completion(JSON(data: data))
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
+    }
+}
 
 class Data {
     static let db = try! Realm()
     
-    private static func cleanDB() {
+    static func populate() {
         try! db.write {
             db.deleteAll()
         }
+        
+        API.get("categories") { json in
+            for (_, category) in json {
+                let title = category["title"].string!
+                let visible = true
+                try! db.write {
+                    db.add(Category(value: [title, visible]))
+                }
+            }
+        }
+        
+        API.get("points") { json in
+            for (_, point) in json {
+                let title = point["title"].string!
+                let latitude = point["latitude"].double!
+                let longitude = point["longitude"].double!
+                try! db.write {
+                    db.add(Point(value: [title, latitude, longitude]))
+                }
+            }
+        }
+        
+        API.get("markers") { json in
+            for (_, marker) in json {
+                let point = db.objects(Point).filter("title == %@", marker["point"].string!)[0]
+                let category = db.objects(Category).filter("title == %@", marker["category"].string!)[0]
+                
+                try! db.write {
+                    db.add(Marker(value: [point, category]))
+                }
+            }
+        }
     }
-    
-    private static func loadJSON() {}
-    
-    private static func saveDB() {
-//        let point = Point(value: ["Upstream Gallery", 52.369078, 4.89752539999995, ""])
-//        let category = Category(value: ["Art", true])
-//        let marker = Marker(value: [point, category])
-//        
-//        try! db.write {
-//            db.add(point)
-//            db.add(category)
-//            db.add(marker)
-//        }
-    }
-    
-    static func populate() {
-        cleanDB()
-        loadJSON()
-        saveDB()
-    }
-    
-
 }

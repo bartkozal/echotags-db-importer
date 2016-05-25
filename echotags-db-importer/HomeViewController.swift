@@ -14,35 +14,40 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var pathTextField: UITextField! {
         didSet {
-            let path = Realm.Configuration.defaultConfiguration.fileURL
-            print(path)
-            pathTextField.text = path?.absoluteString
+            pathTextField.text = Realm.Configuration.defaultConfiguration.fileURL?.absoluteString
             pathTextField.becomeFirstResponder()
-
+            
         }
     }
     
     @IBOutlet weak var categoriesCountLabel: UILabel! {
         didSet {
-            categoriesCountLabel.text = String(Data.db.objects(Category).count)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.categoriesCountLabel.text = String(Data.db.objects(Category).count)
+            }
         }
     }
     
     @IBOutlet weak var pointsCountLabel: UILabel! {
         didSet {
-            pointsCountLabel.text = String(Data.db.objects(Point).count)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.pointsCountLabel.text = String(Data.db.objects(Point).count)
+            }
         }
     }
     
     @IBOutlet weak var markersCountLabel: UILabel! {
         didSet {
-            markersCountLabel.text = String(Data.db.objects(Marker).count)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.markersCountLabel.text = String(Data.db.objects(Marker).count)
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Data.populate()
+        dispatch_async(dispatch_get_main_queue()) {
+            Data.populate()
+        }
     }
 }

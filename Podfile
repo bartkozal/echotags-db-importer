@@ -7,4 +7,6 @@ target 'echotags-db-importer' do
 
   # Pods for echotags-db-importer
   pod 'RealmSwift', '0.103.1'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
 end
