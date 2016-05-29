@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoriesCountLabel: UILabel!
     @IBOutlet weak var pointsCountLabel: UILabel!
     @IBOutlet weak var markersCountLabel: UILabel!
+    @IBOutlet weak var triggersCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -62,12 +62,24 @@ class Data {
                 let title = point["title"].string!
                 let latitude = point["latitude"].double!
                 let longitude = point["longitude"].double!
+                let triggersArray = List<Trigger>()
+                
+                if let triggers = point["triggers"].array {
+                    for trigger in triggers {
+                        let latitude = trigger["latitude"].double!
+                        let longitude = trigger["longitude"].double!
+                        
+                        triggersArray.append(Trigger(value: [latitude, longitude]))
+                    }
+                }
+                
                 try! db.write {
-                    db.add(Point(value: [title, latitude, longitude]))
+                    db.add(Point(value: [title, latitude, longitude, triggersArray]))
                 }
             }
             
             hvc.pointsCountLabel.text = String(Data.db.objects(Point).count)
+            hvc.triggersCountLabel.text = String(Data.db.objects(Trigger).count)
         }
         
         API.get("markers") { json in
