@@ -20,34 +20,13 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var categoriesCountLabel: UILabel! {
-        didSet {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.categoriesCountLabel.text = String(Data.db.objects(Category).count)
-            }
-        }
-    }
-    
-    @IBOutlet weak var pointsCountLabel: UILabel! {
-        didSet {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.pointsCountLabel.text = String(Data.db.objects(Point).count)
-            }
-        }
-    }
-    
-    @IBOutlet weak var markersCountLabel: UILabel! {
-        didSet {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.markersCountLabel.text = String(Data.db.objects(Marker).count)
-            }
-        }
-    }
+    @IBOutlet weak var categoriesCountLabel: UILabel!
+    @IBOutlet weak var pointsCountLabel: UILabel!
+    @IBOutlet weak var markersCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dispatch_async(dispatch_get_main_queue()) {
-            Data.populate()
-        }
+
+        Data.populate(self)
     }
 }

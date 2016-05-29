@@ -15,6 +15,7 @@ struct API {
     static let baseURL = "http://marker.echotags.io"
     private static let user = "echotags"
     private static let password = "iwantabanana"
+    static var vc: UIViewController = UIViewController()
     
     static var credentials: NSURLCredential {
         return NSURLCredential(user: user, password: password, persistence: .ForSession)
@@ -37,7 +38,9 @@ struct API {
 class Data {
     static let db = try! Realm()
     
-    static func populate() {
+    static func populate(vc: UIViewController) {
+        let hvc = vc as! HomeViewController
+        
         try! db.write {
             db.deleteAll()
         }
@@ -50,6 +53,8 @@ class Data {
                     db.add(Category(value: [title, visible]))
                 }
             }
+            
+            hvc.categoriesCountLabel.text = String(Data.db.objects(Category).count)
         }
         
         API.get("points") { json in
@@ -61,17 +66,21 @@ class Data {
                     db.add(Point(value: [title, latitude, longitude]))
                 }
             }
+            
+            hvc.pointsCountLabel.text = String(Data.db.objects(Point).count)
         }
         
         API.get("markers") { json in
             for (_, marker) in json {
-                let point = db.objects(Point).filter("title == %@", marker["point"].string!)[0]
-                let category = db.objects(Category).filter("title == %@", marker["category"].string!)[0]
+                let point = db.objects(Point).filter("title = %@", marker["point"].string!)[0]
+                let category = db.objects(Category).filter("title = %@", marker["category"].string!)[0]
                 
                 try! db.write {
                     db.add(Marker(value: [point, category]))
                 }
             }
+            
+            hvc.markersCountLabel.text = String(Data.db.objects(Marker).count)
         }
     }
 }
