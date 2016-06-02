@@ -41,16 +41,12 @@ class Data {
     static func populate(vc: UIViewController) {
         let hvc = vc as! HomeViewController
         
-        try! db.write {
-            db.deleteAll()
-        }
-        
         API.get("categories") { json in
             for (_, category) in json {
-                let title = category["title"].string!
+                let name = category["name"].string!
                 let visible = true
                 try! db.write {
-                    db.add(Category(value: [title, visible]))
+                    db.add(Category(value: [name, visible]))
                 }
             }
             
@@ -62,6 +58,8 @@ class Data {
                 let title = point["title"].string!
                 let latitude = point["latitude"].double!
                 let longitude = point["longitude"].double!
+                let audio = point["audio"].string!
+                let visited = false
                 let triggersArray = List<Trigger>()
                 
                 if let triggers = point["triggers"].array {
@@ -74,7 +72,7 @@ class Data {
                 }
                 
                 try! db.write {
-                    db.add(Point(value: [title, latitude, longitude, triggersArray]))
+                    db.add(Point(value: [title, latitude, longitude, audio, visited, triggersArray]))
                 }
             }
             
@@ -85,7 +83,7 @@ class Data {
         API.get("markers") { json in
             for (_, marker) in json {
                 let point = db.objects(Point).filter("title = %@", marker["point"].string!)[0]
-                let category = db.objects(Category).filter("title = %@", marker["category"].string!)[0]
+                let category = db.objects(Category).filter("name = %@", marker["category"].string!)[0]
                 
                 try! db.write {
                     db.add(Marker(value: [point, category]))

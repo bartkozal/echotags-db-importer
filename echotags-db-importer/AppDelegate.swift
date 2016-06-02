@@ -14,10 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!.absoluteString)
+        if let url = Realm.Configuration.defaultConfiguration.fileURL {
+            do {
+                try NSFileManager.defaultManager().removeItemAtURL(url)
+                print(url)
+            } catch {
+                print(error)
+            }
+        }
         
         return true
     }

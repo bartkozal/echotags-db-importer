@@ -11,11 +11,14 @@ import RealmSwift
 // Point has many Categories through Markers
 // Category has many Points through Markers
 // Point has many Triggers
+// Trigger belongs to Point
 
 class Point: Object {
-    dynamic var title: String?
+    dynamic var title = ""
     dynamic var latitude = 0.0
     dynamic var longitude = 0.0
+    dynamic var audio = ""
+    dynamic var visited = false
     let triggers = List<Trigger>()
 }
 
@@ -25,11 +28,12 @@ class Marker: Object {
 }
 
 class Category: Object {
-    dynamic var title: String?
+    dynamic var name = ""
     dynamic var visible = true
 }
 
 class Trigger: Object {
     dynamic var latitude = 0.0
     dynamic var longitude = 0.0
+    let point = LinkingObjects(fromType: Point.self, property: "triggers")
 }
