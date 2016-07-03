@@ -73,8 +73,8 @@
 		A167A4471CF5C60400ECCED7 /* echotags-db-importer */ = {
 			isa = PBXGroup;
 			children = (
-				A167A45D1CF5D2A500ECCED7 /* Database */,
-				A167A45A1CF5CC5E00ECCED7 /* HomeViewController.swift */,
+				A167A45E1CF5D2B200ECCED7 /* Schema.swift */,
+				A167A4601CF5D2D200ECCED7 /* Data.swift */,
 				A167A45C1CF5CC6E00ECCED7 /* Support Files */,
 			);
 			path = "echotags-db-importer";
@@ -84,21 +84,13 @@
 			isa = PBXGroup;
 			children = (
 				A167A4481CF5C60400ECCED7 /* AppDelegate.swift */,
+				A167A45A1CF5CC5E00ECCED7 /* HomeViewController.swift */,
 				A167A44C1CF5C60400ECCED7 /* Main.storyboard */,
 				A167A44F1CF5C60400ECCED7 /* Assets.xcassets */,
 				A167A4511CF5C60400ECCED7 /* LaunchScreen.storyboard */,
 				A167A4541CF5C60400ECCED7 /* Info.plist */,
 			);
 			name = "Support Files";
-			sourceTree = "<group>";
-		};
-		A167A45D1CF5D2A500ECCED7 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				A167A45E1CF5D2B200ECCED7 /* Schema.swift */,
-				A167A4601CF5D2D200ECCED7 /* Data.swift */,
-			);
-			name = Database;
 			sourceTree = "<group>";
 		};
 		D522D7D2C594DF757708C98F /* Pods */ = {

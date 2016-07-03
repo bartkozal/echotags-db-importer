@@ -19,6 +19,7 @@ class Point: Object {
     dynamic var longitude = 0.0
     dynamic var audio = ""
     dynamic var visited = false
+    dynamic var color = ""
     let triggers = List<Trigger>()
 }
 
@@ -33,6 +34,7 @@ class Category: Object {
 }
 
 class Trigger: Object {
+    dynamic var id = ""
     dynamic var latitude = 0.0
     dynamic var longitude = 0.0
     let point = LinkingObjects(fromType: Point.self, property: "triggers")

@@ -60,19 +60,21 @@ class Data {
                 let longitude = point["longitude"].double!
                 let audio = point["audio"].string!
                 let visited = false
+                let color = point["color"].string!
                 let triggersArray = List<Trigger>()
                 
                 if let triggers = point["triggers"].array {
                     for trigger in triggers {
+                        let id = trigger["id"].string!
                         let latitude = trigger["latitude"].double!
                         let longitude = trigger["longitude"].double!
                         
-                        triggersArray.append(Trigger(value: [latitude, longitude]))
+                        triggersArray.append(Trigger(value: [id, latitude, longitude]))
                     }
                 }
                 
                 try! db.write {
-                    db.add(Point(value: [title, latitude, longitude, audio, visited, triggersArray]))
+                    db.add(Point(value: [title, latitude, longitude, audio, visited, color, triggersArray]))
                 }
             }
             
