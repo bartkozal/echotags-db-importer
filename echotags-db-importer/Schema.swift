@@ -3,7 +3,6 @@
 //  echotags-db-importer
 //
 //  Created by bkzl on 25/05/16.
-//  Copyright © 2016 bkzl. All rights reserved.
 //
 
 import RealmSwift
