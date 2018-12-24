@@ -12,9 +12,9 @@ import Alamofire
 import SwiftyJSON
 
 struct API {
-    static let baseURL = "http://marker.echotags.io"
-    private static let user = "echotags"
-    private static let password = "iwantabanana"
+    static let baseURL = ""
+    private static let user = ""
+    private static let password = ""
     static var vc: UIViewController = UIViewController()
     
     static var credentials: NSURLCredential {
